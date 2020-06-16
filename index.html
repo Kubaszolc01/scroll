@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            height: 150vh;
+        }
+
+        .text{
+            position: relative;
+            top: 100vh;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 1s all ease-in-out;
+        }
+
+        .appear{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">przewiń w dół</h1>
+    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<script>
+    function scroll(){
+        var text = document.querySelector('.text');
+        var position = text.getBoundingClientRect().top;
+        var screenPosition = window.innerHeight/1.3;
+
+        if(position < screenPosition){
+            text.classList.add('appear');
+        }
+    }
+
+    window.addEventListener('scroll', scroll);
+</script>
+</body>
+</html>
